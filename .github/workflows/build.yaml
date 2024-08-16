@@ -1,0 +1,33 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        java-version: [17]
+
+    runs-on: ${{matrix.os}}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v3.4.2
+
+      - name: Configure JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: ${{ matrix.java-version }}
+
+      - name: Run Tests
+        run: ./gradlew assembleDebug
+        env:
+          GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_SOLUTIONS_ACCESS_TOKEN }}
+
+
