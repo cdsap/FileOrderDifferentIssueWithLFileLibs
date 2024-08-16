@@ -61,7 +61,7 @@ dependencies {
     implementation(fileTree("libs") {
         include("*.jar")
     })
-    implementation(files("libs/joda-time-2.10.5.jar"))
+    //implementation(files("libs/joda-time-2.10.5.jar"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
