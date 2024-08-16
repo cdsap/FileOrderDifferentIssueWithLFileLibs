@@ -58,7 +58,9 @@ repositories {
 }
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
-    implementation(files("libs/jsoup-1.15.3.jar"))
+    implementation(fileTree("libs") {
+        include("*.jar")
+    })
     implementation(files("libs/joda-time-2.10.5.jar"))
 
     implementation(libs.androidx.core.ktx)
