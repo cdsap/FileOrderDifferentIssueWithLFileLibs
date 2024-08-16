@@ -49,22 +49,8 @@ android {
         }
     }
 }
-repositories {
-    mavenCentral()
-    google()
-    flatDir {
-        dirs("libs")
-    }
-}
-dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
- //   implementation(fileTree("libs") {
-        //       include("*.jar")
-   // })
-    implementation(files("libs/jdom2-2.0.6.1.jar"))
-    implementation(files("libs/joda-time-2.10.5.jar"))
-    implementation(files("libs/jsoup-1.15.3.jar"))
 
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
