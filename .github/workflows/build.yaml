@@ -29,5 +29,9 @@ jobs:
         run: ./gradlew assembleDebug
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_SOLUTIONS_ACCESS_TOKEN }}
+      - uses: actions/upload-artifact@v4
+        with:
+            name: my-artifact-${{ matrix.workers }}-${{ matrix.runs }}
+            path: app/build/intermediates/external_file_lib_dex_archives/debug/desugarDebugFileDependencies/
 
 
